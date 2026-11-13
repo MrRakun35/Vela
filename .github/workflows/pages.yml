@@ -33,7 +33,10 @@ jobs:
       - name: Build library and playground
         run: |
           npm run build
-          npx vite build --base=/Vela/ --outDir=dist-pages
+          npx vite build --base=/Vela/ --outDir="$GITHUB_WORKSPACE/dist-pages"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
